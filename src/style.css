@@ -1,0 +1,50 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow: hidden;
+}
+
+.webgl {
+  outline: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.wrapper {
+  height: 100vh;
+  width: 100vw;
+  background-color:antiquewhite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24pt;
+}    
+
+.score {
+  position: absolute;
+  top: 0px;
+  right: -13rem;
+}
+
+.board{
+  display: flex; 
+  flex-flow: column nowrap;
+  position: relative;
+}
+
+.board .row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.board .row div {
+  height: 60px;
+  width: 60px;
+  border: 1px solid gray;
+}
