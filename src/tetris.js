@@ -1,3 +1,5 @@
+import tetrisShapes from './shapes'
+
 const ele = document.querySelector('.board');
 let score = 0;
 
@@ -11,64 +13,7 @@ for(let i = 0; i < nrows; i++){
 
 // body
 let body = [];
-
-// pieces
-
-const shape1 = [
-  [[1,1],
-  [1,1]],
-  [[1,1],
-  [1,1]],
-  [[1,1],
-  [1,1]],
-  [[1,1],
-  [1,1]]
-]
-const shape2 = [
-  [[1,0],
-  [1,0]],
-  [[1,1],
-  [0,0]],
-  [[0,1],
-  [0,1]],
-  [[0,0],
-  [1,1]],
-]
-const shape3 = [
-  [[1,1],
-  [1,0]],
-  [[1,1],
-  [0,1]],
-  [[0,1],
-  [1,1]],
-  [[1,0],
-  [1,1]],
-]
-
-const shape4 = [
-  [
-    [1,1,1],
-    [1,0,0],
-    [1,0,0]
-  ],
-  [
-    [1,1,1],
-    [0,0,1],
-    [0,0,1]
-  ],
-  [
-    [0,0,1],
-    [0,0,1],
-    [1,1,1]
-  ],
-  [
-    [1,0,0],
-    [1,0,0],
-    [1,1,1]
-  ],
-]
-
-const shapes = [shape1, shape2, shape3, shape4]
+const shapes = tetrisShapes;
 
 // piece
 class PiecesHandler{
@@ -167,6 +112,7 @@ function drawTetris(){
   ele.innerHTML = '';
 
   board.forEach(row=>row.fill(0));
+  console.log(body.length)
   body.forEach(ele=>board[ele[0]][ele[1]]=ele[2]);
 
   pieces.position.forEach(row=>{
@@ -222,7 +168,7 @@ setInterval(()=>{
       if(canPlay) pieces.GetNewPiece();
     }
   }
-}, 500)
+}, 400)
 
 window.addEventListener('keydown',(event)=>{
   if(event.key == 'ArrowLeft' && canPlay) pieces.Move(1);
